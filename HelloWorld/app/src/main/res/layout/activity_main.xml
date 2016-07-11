@@ -12,19 +12,50 @@
 
     <com.bornneet.helloworld.TimeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:layout_weight="3"
         android:id="@+id/time_jst"></com.bornneet.helloworld.TimeLayout>
 
     <com.bornneet.helloworld.TimeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:layout_weight="3"
         android:id="@+id/time_pst"></com.bornneet.helloworld.TimeLayout>
 
     <com.bornneet.helloworld.TimeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:layout_weight="3"
         android:id="@+id/time_utc"></com.bornneet.helloworld.TimeLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center_vertical">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/fa_chevron_left"
+            android:id="@+id/button_prev"
+            android:layout_weight="1" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/fa_undo"
+            android:id="@+id/button_reset"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:layout_weight="1" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/fa_chevron_right"
+            android:id="@+id/button_next"
+            android:layout_weight="1" />
+    </LinearLayout>
 </LinearLayout>

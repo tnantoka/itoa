@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Hello World</string>
+
+    <string name="fa_chevron_left">&#xf053;</string>
+    <string name="fa_chevron_right">&#xf054;</string>
+    <string name="fa_undo">&#xf0e2;</string>
 </resources>
