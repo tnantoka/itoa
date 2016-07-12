@@ -8,6 +8,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 import java.text.DateFormat;
 import java.util.Arrays;
 import java.util.Calendar;
@@ -75,6 +78,12 @@ public class MainActivity extends AppCompatActivity {
                 updateHours(0);
             }
         });
+
+        AdView mAdView = (AdView)findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder()
+                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                .build();
+        mAdView.loadAd(adRequest);
     }
 
     private void updateTimes() {
