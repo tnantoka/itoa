@@ -30,7 +30,9 @@ public class PolygonView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
-        paint.setStrokeWidth(4);
+//        canvas.drawColor(Color.WHITE);
+
+        paint.setStrokeWidth(3);
         paint.setAntiAlias(true);
 
         int polygons = new Random().nextInt(3) + circuits;
