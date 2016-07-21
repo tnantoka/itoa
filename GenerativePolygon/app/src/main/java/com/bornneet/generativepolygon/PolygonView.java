@@ -1,6 +1,7 @@
 package com.bornneet.generativepolygon;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -20,6 +21,8 @@ import static java.util.Collections.*;
 public class PolygonView extends View {
 
     int circuits = 3;
+    Bitmap bitmap;
+
     private Paint paint = new Paint();
 
     public PolygonView(Context context, AttributeSet attrs) {
@@ -30,16 +33,21 @@ public class PolygonView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
-//        canvas.drawColor(Color.WHITE);
-
         paint.setStrokeWidth(3);
         paint.setAntiAlias(true);
 
         int polygons = new Random().nextInt(3) + circuits;
 
+        bitmap = Bitmap.createBitmap(getWidth(), getHeight(), Bitmap.Config.ARGB_8888);
+        Canvas bitmapCanvas = new Canvas(bitmap);
+
+//        bitmapCanvas.drawColor(Color.WHITE);
+
         for (int i = 0; i < polygons; i++) {
-            drawPolygon(canvas);
+            drawPolygon(bitmapCanvas);
         }
+
+        canvas.drawBitmap(bitmap, 0, 0, null);
     }
 
     private void drawPolygon(Canvas canvas) {

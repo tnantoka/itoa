@@ -79,9 +79,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void exportPolygonView() {
-        polygonView.setDrawingCacheEnabled(true);
-        Bitmap bitmap = Bitmap.createBitmap(polygonView.getDrawingCache());
-        polygonView.setDrawingCacheEnabled(false);
+        Bitmap bitmap = polygonView.bitmap;
 
         File file = new File(getExternalCacheDir(), "export.png");
 
