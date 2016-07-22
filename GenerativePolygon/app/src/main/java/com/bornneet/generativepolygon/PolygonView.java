@@ -55,7 +55,6 @@ public class PolygonView extends View {
 
         PointF firstPoint = getPoint(0, radius);
         PointF lastPoint = firstPoint;
-        float lastY = 0;
 
         int number = getNumber();
         int step = 360 / number;
