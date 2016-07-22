@@ -5,3 +5,4 @@ keys.xml
 app-release.apk
 *.jks
 device-*.png
+Screenshot_*.png
