@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        AdView mAdView = (AdView)findViewById(R.id.adView);
+        AdView mAdView = (AdView)findViewById(R.id.view_ad);
         AdRequest adRequest = new AdRequest.Builder()
                 .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
                 .build();

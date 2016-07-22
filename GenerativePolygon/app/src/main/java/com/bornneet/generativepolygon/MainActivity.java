@@ -10,6 +10,9 @@ import android.view.MenuItem;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 import java.io.File;
 import java.io.FileOutputStream;
 
@@ -45,6 +48,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         updateTextCircuits();
+
+        AdView mAdView = (AdView)findViewById(R.id.view_ad);
+        AdRequest adRequest = new AdRequest.Builder()
+                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                .build();
+        mAdView.loadAd(adRequest);
     }
 
     @Override
