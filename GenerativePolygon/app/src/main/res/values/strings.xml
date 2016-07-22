@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Generative Polygon</string>
+    <string name="app_name" translatable="false">Generative Polygon</string>
 
     <string name="action_refresh">Refresh</string>
     <string name="action_export">Export</string>
