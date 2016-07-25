@@ -10,6 +10,9 @@ import android.widget.FrameLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 import org.json.JSONObject;
 
 import java.text.DateFormat;
@@ -48,6 +51,12 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         hideProgressBar();
 
         refreshRate();
+
+        AdView mAdView = (AdView)findViewById(R.id.view_ad);
+        AdRequest adRequest = new AdRequest.Builder()
+                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                .build();
+        mAdView.loadAd(adRequest);
     }
 
     private void hideProgressBar() {
