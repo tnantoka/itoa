@@ -32,7 +32,18 @@ The seven apps I've created to become Android developer from iOS.
     </td>
     <td><img src="/GenerativePolygon/screenshot.png"></td>
   </tr>
-
+  <tr>
+    <td><img src="/FetchCurrency/app/src/main/res/mipmap-hdpi/ic_launcher.png"></td>
+    <td><a href="https://play.google.com/store/apps/details?id=com.bornneet.fetchcurrency">Fetch Currency</a></td>
+    <td>
+      <ul>
+        <li>FrameLayout</li>
+        <li>ProgressBar</li>
+        <li>AsyncTaskLoader</li>
+      </ul>
+    </td>
+    <td><img src="/FetchCurrency/screenshot.png"></td>
+  </tr>
 </table>
 
 ## keys.xml
