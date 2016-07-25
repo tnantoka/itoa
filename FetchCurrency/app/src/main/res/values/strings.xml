@@ -1,7 +1,8 @@
 <resources>
     <string name="app_name">FetchCurrency</string>
 
-    <string name="text_pair">doller-yen</string>
+    <string name="text_pair">USD/JPY</string>
+    <string name="text_yen">¥</string>
 
     <string name="button_refresh">Refresh</string>
 </resources>

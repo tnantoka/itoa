@@ -28,12 +28,28 @@
                 android:text="@string/text_pair"
                 android:id="@+id/text_pair" />
 
-            <TextView
+            <LinearLayout
+                android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Large Text"
-                android:id="@+id/text_rate" />
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="@string/text_yen"
+                    android:id="@+id/text_yen"
+                    android:textSize="56sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Large Text"
+                    android:id="@+id/text_rate"
+                    android:textSize="56sp"
+                    android:gravity="right" />
+            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
