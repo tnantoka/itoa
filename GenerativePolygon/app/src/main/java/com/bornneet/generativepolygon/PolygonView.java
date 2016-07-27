@@ -36,14 +36,12 @@ public class PolygonView extends View {
         paint.setStrokeWidth(3);
         paint.setAntiAlias(true);
 
-        int polygons = new Random().nextInt(3) + circuits;
-
         bitmap = Bitmap.createBitmap(getWidth(), getHeight(), Bitmap.Config.ARGB_8888);
         Canvas bitmapCanvas = new Canvas(bitmap);
 
 //        bitmapCanvas.drawColor(Color.WHITE);
 
-        for (int i = 0; i < polygons; i++) {
+        for (int i = 0; i < getPolygons(); i++) {
             drawPolygon(bitmapCanvas);
         }
 
@@ -123,6 +121,10 @@ public class PolygonView extends View {
                 Color.parseColor("#607d8b"),
         };
         return colors[new Random().nextInt(colors.length)];
+    }
+
+    private int getPolygons() {
+        return new Random().nextInt(3) + circuits;
     }
 
     private int getNumber() {
