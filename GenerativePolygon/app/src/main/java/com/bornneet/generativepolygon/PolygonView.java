@@ -124,10 +124,10 @@ public class PolygonView extends View {
     }
 
     private int getPolygons() {
-        return new Random().nextInt(3) + circuits;
+        return new Random().nextInt(5) + circuits;
     }
 
     private int getNumber() {
-        return new Random().nextInt(100) + 50;
+        return new Random().nextInt(50) + 50;
     }
 }
