@@ -1,8 +1,8 @@
 <resources>
-    <string name="app_name">FetchCurrency</string>
+    <string name="app_name" translatable="false">FetchCurrency</string>
 
-    <string name="text_pair">USD/JPY</string>
-    <string name="text_yen">¥</string>
+    <string name="text_pair" translatable="false">USD/JPY</string>
+    <string name="text_yen" translatable="false">¥</string>
 
     <string name="button_refresh">Refresh</string>
 </resources>

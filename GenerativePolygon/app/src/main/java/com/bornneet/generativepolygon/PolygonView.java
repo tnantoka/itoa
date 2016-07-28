@@ -21,6 +21,7 @@ import static java.util.Collections.*;
 public class PolygonView extends View {
 
     int circuits = 3;
+    int number;
     Bitmap bitmap;
 
     private Paint paint = new Paint();
@@ -41,6 +42,7 @@ public class PolygonView extends View {
 
 //        bitmapCanvas.drawColor(Color.WHITE);
 
+        number = getNumber();
         for (int i = 0; i < getPolygons(); i++) {
             drawPolygon(bitmapCanvas);
         }
@@ -54,7 +56,6 @@ public class PolygonView extends View {
         PointF firstPoint = getPoint(0, radius);
         PointF lastPoint = firstPoint;
 
-        int number = getNumber();
         int step = 360 / number;
 
         for (int i = 1; i <= 360; i += step) {
@@ -84,7 +85,7 @@ public class PolygonView extends View {
     }
 
     private float getRadius() {
-        float maxRadius = 400;
+        float maxRadius = (getWidth() - getResources().getDimension(R.dimen.activity_horizontal_margin)) / 2;
         float step = maxRadius / circuits;
 
         List<Float> radiuses = new ArrayList<Float>();
@@ -124,10 +125,10 @@ public class PolygonView extends View {
     }
 
     private int getPolygons() {
-        return new Random().nextInt(5) + circuits;
+        return new Random().nextInt(15) + 5;
     }
 
     private int getNumber() {
-        return new Random().nextInt(50) + 50;
+        return new Random().nextInt(35) + 5;
     }
 }
