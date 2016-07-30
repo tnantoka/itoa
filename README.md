@@ -26,7 +26,7 @@ The seven apps I've created to become Android developer from iOS.
         <li>Canvas</li>
         <li>Menu</li>
         <li>Bitmap</li>
-        <li>Intent</li>
+        <li>Implicit Intent</li>
         <li>Translation</li>
       </ul>
     </td>
