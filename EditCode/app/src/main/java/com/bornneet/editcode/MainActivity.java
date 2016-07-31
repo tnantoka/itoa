@@ -19,30 +19,43 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    List<String> projects;
-    ArrayAdapter<String> adapter;
+    List<Project> projects;
+    ArrayAdapter<Project> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Project.parentDir = projectsDir();
+
         ListView listProjects = (ListView)findViewById(R.id.list_projects);
         TextView textEmpty = (TextView)findViewById(R.id.text_empty);
         listProjects.setEmptyView(textEmpty);
 
-        projects = new ArrayList<String>();
+        projects = new ArrayList<Project>();
 
-        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, projects);
+        adapter = new ArrayAdapter<Project>(this, android.R.layout.simple_list_item_1, projects);
         listProjects.setAdapter(adapter);
         listProjects.setOnItemClickListener(new ListView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                String projct = projects.get(i);
+                Project project = projects.get(i);
+                Log.d("name", project.name);
             }
         });
 
         loadProjects();
+
+//        for (Project project: projects) {
+//            project.destroy();
+//        }
+//        loadProjects();
+        for (Project project: projects) {
+            project.load();
+            Log.d("name", project.name);
+            Log.d("content", project.html + project.css + project.js);
+        }
     }
 
     @Override
@@ -74,8 +87,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (requestCode == 1) {
             String name = data.getStringExtra("name");
-            File project = new File(projectsDir(), name);
-            project.mkdir();
+            new Project(name).create();
             loadProjects();
         }
     }
@@ -92,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
         for (File file: files) {
             if (file.isDirectory()) {
                 String name = file.getName();
-                projects.add(name);
+                projects.add(new Project(name));
             }
         }
         adapter.notifyDataSetChanged();
