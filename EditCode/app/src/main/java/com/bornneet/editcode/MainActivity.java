@@ -17,7 +17,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements ListView.OnItemClickListener {
 
     List<Project> projects;
     ArrayAdapter<Project> adapter;
@@ -32,30 +32,14 @@ public class MainActivity extends AppCompatActivity {
         ListView listProjects = (ListView)findViewById(R.id.list_projects);
         TextView textEmpty = (TextView)findViewById(R.id.text_empty);
         listProjects.setEmptyView(textEmpty);
+        listProjects.setOnItemClickListener(this);
 
         projects = new ArrayList<Project>();
 
         adapter = new ArrayAdapter<Project>(this, android.R.layout.simple_list_item_1, projects);
         listProjects.setAdapter(adapter);
-        listProjects.setOnItemClickListener(new ListView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Project project = projects.get(i);
-                Log.d("name", project.name);
-            }
-        });
 
         loadProjects();
-
-//        for (Project project: projects) {
-//            project.destroy();
-//        }
-//        loadProjects();
-        for (Project project: projects) {
-            project.load();
-            Log.d("name", project.name);
-            Log.d("content", project.html + project.css + project.js);
-        }
     }
 
     @Override
@@ -108,5 +92,13 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         adapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+        Project project = projects.get(i);
+        Intent intent = new Intent(this, DetailActivity.class);
+        intent.putExtra("name", project.name);
+        startActivity(intent);
     }
 }

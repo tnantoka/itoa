@@ -19,6 +19,8 @@ public class NewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new);
 
+        setTitle(R.string.activity_new);
+
         editName = (EditText)findViewById(R.id.edit_name);
 
         Button buttonCreate = (Button)findViewById(R.id.button_create);
