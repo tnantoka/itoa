@@ -1,10 +1,8 @@
 package com.bornneet.editcode;
 
 import android.content.Intent;
-import android.support.v4.app.ShareCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -40,6 +38,10 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
         listProjects.setAdapter(adapter);
 
         loadProjects();
+
+//        for (Project project: projects) {
+//            project.destroy();
+//        }
     }
 
     @Override

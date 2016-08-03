@@ -1,7 +1,5 @@
 package com.bornneet.editcode;
 
-import org.json.JSONObject;
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -33,11 +31,21 @@ public class Project {
         return name;
     }
 
+    public String url() {
+        return "file://" + new File(dir(), HTML_FILE).getAbsolutePath();
+    }
+
     public void create() {
         dir().mkdir();
-        html = "html";
-        css = "css";
-        js = "js";
+        html = "<link rel='stylesheet' href='" + CSS_FILE + "'>" + "\n"
+                + "<h1>" + name + "</h1>" + "\n"
+                + "<script src='" + JS_FILE + "'></script>";
+        css = "body {"  + "\n"
+                + "  background: #fafafa;" + "\n"
+                + "}";
+        js = "window.addEventListener('load', function() {" + "\n"
+                + "  document.body.innerHTML += '<p>hello world</p>';" + "\n"
+                + "});";
         save();
     }
 
@@ -73,7 +81,7 @@ public class Project {
             StringBuilder builder = new StringBuilder();
             String line;
             while ((line = reader.readLine()) != null) {
-                builder.append(line);
+                builder.append(line + "\n");
             }
             return builder.toString();
         } catch (Exception e) {

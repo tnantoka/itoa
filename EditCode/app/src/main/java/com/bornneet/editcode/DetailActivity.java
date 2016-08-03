@@ -2,9 +2,8 @@ package com.bornneet.editcode;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
+import android.webkit.WebView;
 import android.widget.EditText;
 import android.widget.TabHost;
 
@@ -13,9 +12,14 @@ import android.widget.TabHost;
  */
 public class DetailActivity extends AppCompatActivity {
 
+    Project project;
+
     EditText editHTML;
     EditText editCSS;
     EditText editJS;
+
+    WebView webView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,20 +27,19 @@ public class DetailActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         String name = intent.getStringExtra("name");
-        Project project = new Project(name);
+        project = new Project(name);
         project.load();
-        Log.d("loaded", project.html + project.css + project.js);
 
         setTitle(project.name);
 
         editHTML = (EditText)findViewById(R.id.tab_layout_html).findViewById(R.id.edit_text);
         editCSS = (EditText)findViewById(R.id.tab_layout_css).findViewById(R.id.edit_text);
         editJS = (EditText)findViewById(R.id.tab_layout_js).findViewById(R.id.edit_text);
-
+        webView = (WebView)findViewById(R.id.web_view);
+        
         editHTML.setText(project.html);
         editCSS.setText(project.css);
         editJS.setText(project.js);
-
 
         TabHost tabHost = (TabHost)findViewById(R.id.tab_host);
 
@@ -66,5 +69,14 @@ public class DetailActivity extends AppCompatActivity {
                 .setIndicator("Web")
                 .setContent(R.id.tab_layout_web);
         tabHost.addTab(spec);
+
+        tabHost.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
+            @Override
+            public void onTabChanged(String s) {
+                if (s == "web") {
+                    webView.loadUrl(project.url());
+                }
+            }
+        });
     }
 }
