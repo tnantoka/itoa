@@ -1,13 +1,10 @@
 package com.bornneet.editcode;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.webkit.WebView;
@@ -45,14 +42,6 @@ public class DetailActivity extends AppCompatActivity implements TextWatcher {
         webView = (WebView)findViewById(R.id.web_view);
 
         webView.getSettings().setJavaScriptEnabled(true);
-
-        editHTML.setText(project.html);
-        editCSS.setText(project.css);
-        editJS.setText(project.js);
-
-        editHTML.addTextChangedListener(this);
-        editCSS.addTextChangedListener(this);
-        editJS.addTextChangedListener(this);
 
         TabHost tabHost = (TabHost)findViewById(R.id.tab_host);
 
@@ -95,6 +84,23 @@ public class DetailActivity extends AppCompatActivity implements TextWatcher {
                 }
             }
         });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        editHTML.setText(project.html);
+        editCSS.setText(project.css);
+        editJS.setText(project.js);
+
+        editHTML.removeTextChangedListener(this);
+        editCSS.removeTextChangedListener(this);
+        editJS.removeTextChangedListener(this);
+
+        editHTML.addTextChangedListener(this);
+        editCSS.addTextChangedListener(this);
+        editJS.addTextChangedListener(this);
     }
 
     @Override
