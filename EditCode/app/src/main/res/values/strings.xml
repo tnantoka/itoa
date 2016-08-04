@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Edit Code</string>
+    <string name="app_name" translatable="false">Edit Code</string>
 
     <string name="action_new">New Project</string>
     <string name="action_delete_all">Delete All Projects</string>

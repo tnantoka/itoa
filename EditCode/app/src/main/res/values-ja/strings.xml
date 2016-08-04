@@ -1,0 +1,13 @@
+<resources>
+    <string name="action_new">新規プロジェクト</string>
+    <string name="action_delete_all">全てのプロジェクトを削除</string>
+    <string name="action_delete">プロジェクトを削除</string>
+    <string name="text_empty">プロジェクトはまだありません</string>
+
+    <string name="activity_new">新規プロジェクト</string>
+    <string name="button_create">プロジェクトを作成</string>
+
+    <string name="dialog_sure">よろしいですか？</string>
+    <string name="dialog_yes">はい</string>
+    <string name="dialog_no">いいえ</string>
+</resources>
