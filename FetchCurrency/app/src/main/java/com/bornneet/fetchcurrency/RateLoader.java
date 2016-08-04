@@ -26,7 +26,7 @@ public class RateLoader extends AsyncTaskLoader<JSONObject> {
             // select * from yahoo.finance.xchange where pair in ("USDJPY")
             String urlString = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20yahoo.finance.xchange%20where%20pair%20in%20%28%22USDJPY%22%29&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys";
             URL url = new URL(urlString);
-            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            HttpURLConnection connection = (HttpURLConnection)url.openConnection();
 
             InputStream stream = connection.getInputStream();
             BufferedReader reader = new BufferedReader(new InputStreamReader(stream));

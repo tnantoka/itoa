@@ -40,10 +40,27 @@ The seven apps I've created to become Android developer from iOS.
         <li>FrameLayout</li>
         <li>ProgressBar</li>
         <li>AsyncTaskLoader</li>
+        <li>HttpURLConnection</li>
       </ul>
     </td>
     <td><img src="/FetchCurrency/screenshot.png"></td>
   </tr>
+  <tr>
+    <td><img src="/EditCode/app/src/main/res/mipmap-hdpi/ic_launcher.png"></td>
+    <td><a href="https://play.google.com/store/apps/details?id=com.bornneet.editcode">Edit Code</a></td>
+    <td>
+      <ul>
+        <li>ListView</li>
+        <li>Explicit Intent</li>
+        <li>EditText</li>
+        <li>WebView</li>
+        <li>TabHost</li>
+        <li>AlertDialog</li>
+      </ul>
+    </td>
+    <td><img src="/EditCode/screenshot.png"></td>
+  </tr>
+
 </table>
 
 ## keys.xml
@@ -56,6 +73,7 @@ Keys for:
 $ cp keys.xml.example HelloWorld/app/src/main/res/values/keys.xml
 $ cp keys.xml.example GenerativePolygon/app/src/main/res/values/keys.xml
 $ cp keys.xml.example FetchCurrency/app/src/main/res/values/keys.xml
+$ cp keys.xml.example EditCode/app/src/main/res/values/keys.xml
 ```
 
 ## Author
