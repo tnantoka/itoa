@@ -3,6 +3,7 @@
 
     <string name="action_new">New Project</string>
     <string name="action_delete_all">Delete All Projects</string>
+    <string name="action_delete">Delete Project</string>
     <string name="text_empty">No project found.</string>
 
     <string name="activity_new">New Project</string>
