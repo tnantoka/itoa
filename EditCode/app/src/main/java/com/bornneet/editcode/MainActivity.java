@@ -1,8 +1,11 @@
 package com.bornneet.editcode;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -38,10 +41,6 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
         listProjects.setAdapter(adapter);
 
         loadProjects();
-
-//        for (Project project: projects) {
-//            project.destroy();
-//        }
     }
 
     @Override
@@ -57,6 +56,27 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
         if (id == R.id.action_new) {
             Intent intent = new Intent(this, NewActivity.class);
             startActivityForResult(intent, 1);
+            return true;
+        }
+
+        if (id == R.id.action_delete_all) {
+            new AlertDialog.Builder(this)
+                    .setTitle(R.string.dialog_sure)
+                    .setPositiveButton(R.string.dialog_yes, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            for (Project project: projects) {
+                                project.destroy();
+                            }
+                            loadProjects();
+                        }
+                    })
+                    .setNegativeButton(R.string.dialog_no, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                        }
+                    })                    .show();
+
             return true;
         }
 
