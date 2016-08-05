@@ -75,6 +75,7 @@ $ cp keys.xml.example HelloWorld/app/src/main/res/values/keys.xml
 $ cp keys.xml.example GenerativePolygon/app/src/main/res/values/keys.xml
 $ cp keys.xml.example FetchCurrency/app/src/main/res/values/keys.xml
 $ cp keys.xml.example EditCode/app/src/main/res/values/keys.xml
+$ cp keys.xml.example DotPict/app/src/main/res/values/keys.xml
 ```
 
 ## Author
