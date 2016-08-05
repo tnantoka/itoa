@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
         AdRequest adRequest = new AdRequest.Builder()
                 .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
                 .build();
-//        mAdView.loadAd(adRequest);
+        mAdView.loadAd(adRequest);
     }
 
     @Override
