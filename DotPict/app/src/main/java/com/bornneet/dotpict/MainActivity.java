@@ -1,10 +1,14 @@
 package com.bornneet.dotpict;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -16,6 +20,9 @@ import android.widget.Switch;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+
+import java.io.File;
+import java.io.FileOutputStream;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -38,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
         updateColor(preferences.getInt("color", viewPicture.color));
         viewPicture.setQuality(preferences.getInt("quality", viewPicture.quality));
         viewPicture.grid = preferences.getBoolean("grid", viewPicture.grid);
+        switchGrid.setChecked(viewPicture.grid);
 
         for (int color: viewPicture.colors) {
             Button button = new Button(this);
@@ -77,7 +85,6 @@ public class MainActivity extends AppCompatActivity {
                 checkedId = radio.getId();
             }
         }
-        Log.d("checked", String.valueOf(checkedId));
         groupQuality.check(checkedId);
 
         switchGrid.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -96,6 +103,46 @@ public class MainActivity extends AppCompatActivity {
         mAdView.loadAd(adRequest);
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.action_export) {
+            Bitmap bitmap = viewPicture.export();
+            File file = new File(getExternalCacheDir(), "export.png");
+
+            try {
+                FileOutputStream stream = new FileOutputStream(file);
+                bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
+                stream.flush();
+                stream.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            Intent intent = new Intent();
+            intent.setAction(Intent.ACTION_VIEW);
+            intent.setDataAndType(Uri.fromFile(file), "image/*");
+            startActivity(intent);
+
+            return true;
+        }
+
+        if (id == R.id.action_clear) {
+            viewPicture.clear();
+            viewPicture.invalidate();
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
     private void savePreferences() {
         SharedPreferences.Editor editor = preferences.edit();
         editor.putInt("color", viewPicture.color);
@@ -105,7 +152,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void updateColor(int color) {
-        viewPicture.color = preferences.getInt("color", viewPicture.color);
+        viewPicture.color = color;
         viewColor.setBackgroundColor(color);
     }
 }

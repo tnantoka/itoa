@@ -1,6 +1,7 @@
 package com.bornneet.dotpict;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -93,9 +94,21 @@ public class PictureView extends View {
     public void setQuality(int quality) {
         this.quality = quality;
         dots = new int[quality][quality];
+        clear();
+    }
+
+    public void clear() {
         for (int i = 0; i < quality; i++) {
             Arrays.fill(dots[i], defaultBackgroundColor);
         }
+    }
+
+    public Bitmap export() {
+        setDrawingCacheEnabled(true);
+        Bitmap cache = getDrawingCache();
+        Bitmap bitmap = Bitmap.createBitmap(cache);
+        setDrawingCacheEnabled(false);
+        return bitmap;
     }
 
     private float size() {

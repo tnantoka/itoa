@@ -2,4 +2,7 @@
     <string name="app_name" translatable="false">Dot Pict</string>
 
     <string name="switch_grid">Grid</string>
+
+    <string name="action_export">Export</string>
+    <string name="action_clear">Clear</string>
 </resources>
