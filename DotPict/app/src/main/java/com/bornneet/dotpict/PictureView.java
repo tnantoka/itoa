@@ -18,7 +18,10 @@ import java.util.Random;
 public class PictureView extends View {
 
     boolean grid = false;
-    int quality = 16;
+
+    int[] qualities = {16, 32, 64};
+    int quality = qualities[0];
+
     int[] colors = {
             Color.BLACK,
             Color.BLUE,
@@ -42,11 +45,7 @@ public class PictureView extends View {
 
     public PictureView(Context context, AttributeSet attrs) {
         super(context, attrs);
-
-        dots = new int[quality][quality];
-        for (int i = 0; i < quality; i++) {
-            Arrays.fill(dots[i], defaultBackgroundColor);
-        }
+        setQuality(quality);
     }
 
     @Override
@@ -54,9 +53,9 @@ public class PictureView extends View {
         super.onDraw(canvas);
 
         for (int i = 0; i < quality; i++) {
-            int x = i * size();
+            float x = i * size();
             for (int j = 0; j < quality; j++) {
-                int y = j * size();
+                float y = j * size();
                 paint.setColor(dots[i][j]);
                 canvas.drawRect(x, y, x + size(), y + size(), paint);
             }
@@ -64,8 +63,8 @@ public class PictureView extends View {
 
         if (grid) {
             for (int i = 1; i < quality; i++) {
-                int x = i * size();
-                int y = i * size();
+                float x = i * size();
+                float y = i * size();
                 paint.setColor(defaultForegroundColor);
                 canvas.drawLine(x, 0, x, getHeight(), paint);
                 canvas.drawLine(0, y, getWidth(), y, paint);
@@ -85,8 +84,8 @@ public class PictureView extends View {
         float x = event.getX() / size();
         float y = event.getY() / size();
 
-        int i = (int)Math.floor(event.getX() / size());
-        int j = (int)Math.floor(event.getY() / size());
+        int i = (int)Math.floor(x);
+        int j = (int)Math.floor(y);
         dots[i][j] = dots[i][j] != color ? color : defaultBackgroundColor;
         invalidate();
 
@@ -94,7 +93,15 @@ public class PictureView extends View {
         return super.onTouchEvent(event);
     }
 
-    private int size() {
-        return getWidth() / quality;
+    public void setQuality(int quality) {
+        this.quality = quality;
+        dots = new int[quality][quality];
+        for (int i = 0; i < quality; i++) {
+            Arrays.fill(dots[i], defaultBackgroundColor);
+        }
+    }
+
+    private float size() {
+        return (float)getWidth() / quality;
     }
 }

@@ -1,5 +1,8 @@
 package com.bornneet.dotpict;
 
+import android.content.SharedPreferences;
+import android.graphics.Picture;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -7,6 +10,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Switch;
 
 import com.google.android.gms.ads.AdRequest;
@@ -14,14 +19,23 @@ import com.google.android.gms.ads.AdView;
 
 public class MainActivity extends AppCompatActivity {
 
+    SharedPreferences preferences;
+    PictureView viewPicture;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final PictureView viewPicture = (PictureView)findViewById(R.id.view_picture);
+        viewPicture = (PictureView)findViewById(R.id.view_picture);
         LinearLayout layoutColors = (LinearLayout)findViewById(R.id.layout_colors);
         Switch switchGrid = (Switch)findViewById(R.id.switch_grid);
+        RadioGroup groupQuality = (RadioGroup)findViewById(R.id.group_quality);
+
+        preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        viewPicture.color = preferences.getInt("color", viewPicture.color);
+        viewPicture.setQuality(preferences.getInt("quality", viewPicture.quality));
+        viewPicture.grid = preferences.getBoolean("grid", viewPicture.grid);
 
         for (int color: viewPicture.colors) {
             Button button = new Button(this);
@@ -35,10 +49,28 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     viewPicture.color = Integer.valueOf(view.getTag().toString());
+                    savePreferences();
                 }
             });
 
             layoutColors.addView(button);
+        }
+
+        for (int quality: viewPicture.qualities) {
+            RadioButton radio = new RadioButton(this);
+            radio.setText(String.valueOf(quality));
+            radio.setChecked(quality == viewPicture.quality);
+            radio.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                    if (b) {
+                        viewPicture.setQuality(Integer.valueOf(compoundButton.getText().toString()));
+                        viewPicture.invalidate();
+                        savePreferences();
+                    }
+                }
+            });
+            groupQuality.addView(radio);
         }
 
         switchGrid.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -46,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 viewPicture.grid = b;
                 viewPicture.invalidate();
+                savePreferences();
             }
         });
 
@@ -53,6 +86,14 @@ public class MainActivity extends AppCompatActivity {
         AdRequest adRequest = new AdRequest.Builder()
                 .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
                 .build();
-//        mAdView.loadAd(adRequest);
+        mAdView.loadAd(adRequest);
+    }
+
+    private void savePreferences() {
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putInt("color", viewPicture.color);
+        editor.putInt("quality", viewPicture.quality);
+        editor.putBoolean("grid", viewPicture.grid);
+        editor.commit();
     }
 }
