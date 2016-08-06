@@ -5,12 +5,10 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
 import java.util.Arrays;
-import java.util.Random;
 
 /**
  * Created by tnantoka on 8/5/16.
@@ -89,7 +87,6 @@ public class PictureView extends View {
         dots[i][j] = dots[i][j] != color ? color : defaultBackgroundColor;
         invalidate();
 
-        Log.d("x, y", String.valueOf(x) + ", " + String.valueOf(y));
         return super.onTouchEvent(event);
     }
 
