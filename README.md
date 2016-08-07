@@ -61,7 +61,19 @@ The seven apps I've created to become Android developer from iOS.
     </td>
     <td><img src="/EditCode/screenshot.png"></td>
   </tr>
-
+  <tr>
+    <td><img src="/DotPict/app/src/main/res/mipmap-hdpi/ic_launcher.png"></td>
+    <td><a href="https://play.google.com/store/apps/details?id=com.bornneet.dotpict">Dot Pict</a></td>
+    <td>
+      <ul>
+        <li>Touch Event</li>
+        <li>Programmatically Add Views</li>
+        <li>Switch</li>
+        <li>SharedPreferences</li>
+      </ul>
+    </td>
+    <td><img src="/DotPict/screenshot.png"></td>
+  </tr>
 </table>
 
 ## keys.xml
