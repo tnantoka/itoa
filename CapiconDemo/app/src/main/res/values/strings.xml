@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Capicon Demo</string>
+
+    <string name="text_string">String</string>
+    <string name="text_scale">Text Scale</string>
+
+    <string name="button_export">Export</string>
 </resources>
