@@ -86,6 +86,7 @@ public class MainActivity extends AppCompatActivity {
         textScale.setText(String.format("%.2f", scale));
 
         Capicon capicon = new Capicon(300);
+        capicon.backgroundColor = Capicon.Colors.PINK;
         capicon.string = editString.getText().toString();
         capicon.textScale = scale;
 

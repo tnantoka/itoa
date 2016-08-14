@@ -24,7 +24,7 @@ repositories {
 }
 
 dependencies {
-    compile 'com.bornneet.capicon:capicon:1.0.2'
+    compile 'com.bornneet.capicon:capicon:1.0.3'
 }
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])

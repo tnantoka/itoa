@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Capicon Demo</string>
+    <string name="app_name" translatable="false">Capicon Demo</string>
 
     <string name="text_string">String</string>
     <string name="text_scale">Text Scale</string>
