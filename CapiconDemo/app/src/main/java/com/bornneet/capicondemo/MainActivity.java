@@ -97,6 +97,7 @@ public class MainActivity extends AppCompatActivity {
         capicon.backgroundColor = Capicon.Colors.PINK;
         capicon.string = editString.getText().toString();
         capicon.textScale = scale;
+        capicon.roundScale = 0.1f;
 
         bitmap = capicon.bitmap();
         imageCapicon.setImageBitmap(bitmap);
