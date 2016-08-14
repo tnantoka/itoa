@@ -18,6 +18,8 @@ import java.io.File;
 import java.io.FileOutputStream;
 
 import com.bornneet.capicon.Capicon;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -79,6 +81,12 @@ public class MainActivity extends AppCompatActivity {
         });
 
         updateCapicon();
+
+        AdView mAdView = (AdView)findViewById(R.id.view_ad);
+        AdRequest adRequest = new AdRequest.Builder()
+                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                .build();
+        mAdView.loadAd(adRequest);
     }
 
     private void updateCapicon() {
