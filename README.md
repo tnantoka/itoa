@@ -1,4 +1,4 @@
-# itoa
+# i -> a
 
 The seven apps I've created to become Android developer from iOS.
 
@@ -79,7 +79,7 @@ The seven apps I've created to become Android developer from iOS.
     <td><a href="https://play.google.com/store/apps/details?id=com.bornneet.capicondemo">Capicon Demo</a></td>
     <td>
       <ul>
-        <li>Library (<a ="https://github.com/tnantoka/Capicon">Capicon</a>)</li>
+        <li>Create Library (<a href="https://github.com/tnantoka/Capicon">Capicon</a>)</li>
         <li>drawText</li>
         <li>Build.VERSION</li>
       </ul>
