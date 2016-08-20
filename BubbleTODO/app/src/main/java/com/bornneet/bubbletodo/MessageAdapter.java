@@ -50,7 +50,7 @@ public class MessageAdapter extends ArrayAdapter<String> {
         textMessage.setBackgroundColor(ContextCompat.getColor(context, color));
 
         RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams)textMessage.getLayoutParams();
-        int rule = position %  2 == 0 ? RelativeLayout.ALIGN_PARENT_LEFT : RelativeLayout.ALIGN_PARENT_RIGHT;
+        int rule = position %  2 == 0 ? RelativeLayout.ALIGN_PARENT_RIGHT : RelativeLayout.ALIGN_PARENT_LEFT;
         params.addRule(rule);
         textMessage.setLayoutParams(params);
 

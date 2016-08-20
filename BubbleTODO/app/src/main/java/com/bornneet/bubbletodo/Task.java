@@ -38,4 +38,15 @@ public class Task extends RealmObject {
         RealmResults<Task> tasks = query.findAll();
         return tasks;
     }
+
+    static void deleteAll() {
+        Realm realm = Realm.getDefaultInstance();
+
+        realm.executeTransaction(new Realm.Transaction() {
+            @Override
+            public void execute(Realm realm) {
+                all().deleteAllFromRealm();
+            }
+        });
+    }
 }

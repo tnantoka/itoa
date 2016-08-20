@@ -2,4 +2,10 @@
     <string name="app_name">Bubble TODO</string>
 
     <string name="button_submit">Submit</string>
+
+    <string name="may_i_help_you">May I help you?</string>
+    <string name="usage">"l: List\na: Add\nd: Delete"</string>
+    <string name="no_task_found">No task found.</string>
+    <string name="whats_the_name">What\'s the name?</string>
+    <string name="whats_the_id">What\'s the ID?</string>
 </resources>
