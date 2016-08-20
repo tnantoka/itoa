@@ -101,6 +101,7 @@ $ cp keys.xml.example FetchCurrency/app/src/main/res/values/keys.xml
 $ cp keys.xml.example EditCode/app/src/main/res/values/keys.xml
 $ cp keys.xml.example DotPict/app/src/main/res/values/keys.xml
 $ cp keys.xml.example CapiconDemo/app/src/main/res/values/keys.xml
+$ cp keys.xml.example BubbleTODO/app/src/main/res/values/keys.xml
 ```
 
 ## Author
