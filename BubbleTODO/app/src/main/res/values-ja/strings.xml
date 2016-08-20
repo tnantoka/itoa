@@ -1,0 +1,9 @@
+<resources>
+    <string name="button_submit">送信</string>
+
+    <string name="may_i_help_you">ご用件は?</string>
+    <string name="usage">"l: 一覧\na: 追加\nd: 削除"</string>
+    <string name="no_task_found">タスクはありません</string>
+    <string name="whats_the_name">タスクの名前は?</string>
+    <string name="whats_the_id">タスクのIDは?</string>
+</resources>

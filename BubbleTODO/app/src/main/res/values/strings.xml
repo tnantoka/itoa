@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Bubble TODO</string>
+    <string name="app_name" translatable="false">Bubble TODO</string>
 
     <string name="button_submit">Submit</string>
 

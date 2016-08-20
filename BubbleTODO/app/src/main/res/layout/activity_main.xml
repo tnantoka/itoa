@@ -20,7 +20,8 @@
             android:layout_height="0dp"
             android:id="@+id/list_messages"
             android:divider="@null"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:layout_marginTop="@dimen/activity_vertical_margin" />
 
         <LinearLayout
             android:orientation="horizontal"

@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        
+
         listMessages = (ListView)findViewById(R.id.list_messages);
 
         messages = new ArrayList<String>();
@@ -115,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
         AdRequest adRequest = new AdRequest.Builder()
                 .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
                 .build();
-//        mAdView.loadAd(adRequest);
+        mAdView.loadAd(adRequest);
     }
 
     private String list() {
