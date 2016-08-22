@@ -1,6 +1,8 @@
 # i -> a
 
-The seven apps I've created to become Android developer from iOS.
+The seven apps created by me, from the iOS world, to become an Android developer.
+
+![](/home.png)
 
 <table>
   <tr>
@@ -91,7 +93,7 @@ The seven apps I've created to become Android developer from iOS.
     <td><a href="https://play.google.com/store/apps/details?id=com.bornneet.bubbletodo">Bubble TODO</a></td>
     <td>
       <ul>
-        <li>Use Library (Realm)</li>
+        <li>Use 3rd Party Library (Realm)</li>
         <li>Custom List Item</li>
       </ul>
     </td>
@@ -119,4 +121,4 @@ $ cp keys.xml.example BubbleTODO/app/src/main/res/values/keys.xml
 
 [@tnantoka](https://twitter.com/tnantoka)
 
-Looking for a non-standard function of C programing language? Please visit [Wikibooks](https://en.wikibooks.org/wiki/C_Programming/C_Reference/stdlib.h/itoa).
+*Looking for a non-standard function of C programing language? Please visit [Wikibooks](https://en.wikibooks.org/wiki/C_Programming/C_Reference/stdlib.h/itoa).*
